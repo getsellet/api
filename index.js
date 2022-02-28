@@ -7,8 +7,10 @@
 
   // middlewares
   const helmet = require('helmet')
+  const auth = require('./middlewares/auth')
 
   app.use(helmet())
+  app.use(auth())
   app.use(express.json())
 
   // endpoints
