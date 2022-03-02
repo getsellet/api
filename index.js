@@ -29,5 +29,5 @@
     if (module.patch) app.patch(module.endpoint, module.patch)
   }
 
-  app.listen(80, () => console.log('webserver listening to ::80'))
+  app.listen(8080, () => console.log('webserver listening to ::8080'))
 })()

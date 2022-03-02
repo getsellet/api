@@ -14,6 +14,7 @@
     "helmet": "^5.0.2",
     "mongodb": "^4.4.0",
     "ow": "^0.28.1",
+    "roverify": "^1.1.0",
     "ws": "^8.5.0"
   },
   "devDependencies": {
