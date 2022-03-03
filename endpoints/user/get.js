@@ -16,7 +16,7 @@ module.exports = {
 
     // find user
     const user = await db.collection('users').findOne({ [`${req.params.source}.id`]: req.params.id })
-    if (!user) return res.status(404).send({ message: `'${req.params.source}' user '${req.params.id}' could not be found  ` })
+    if (!user) return res.status(404).send({ message: `'${req.params.source}' user '${req.params.id}' could not be found` })
 
     return res.status(200).send(user)
   }
