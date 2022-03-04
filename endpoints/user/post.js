@@ -31,7 +31,12 @@ module.exports = {
     delete roblox.externalAppDisplayName
 
     // upsert user
-    const user = await db.collection('users').updateOne({ 'discord.id': req.body.discord }, { $set: { roblox } }, { upsert: true })
+    const user = await db.collection('users').updateOne({
+      $or: [
+        { 'discord.id': req.body.discord },
+        { 'roblox.id': roblox.id }
+      ]
+    }, { $set: { roblox } }, { upsert: true })
     if (!user.upsertedId) user._id = (await db.collection('users').findOne({ 'discord.id': req.body.discord }))._id
 
     return res.status(201).send({ _id: user.upsertedId || user._id, roblox })
