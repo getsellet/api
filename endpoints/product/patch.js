@@ -24,7 +24,7 @@ module.exports = {
     const product = await db.collection('products').updateOne({
       _id: new ObjectId(req.params.id),
       hub: req.hub._id
-    }, { $set: req.body }, { $set: req.body })
+    }, { $set: req.body })
     if (!product.matchedCount) return res.status(404).send({ message: `Product '${req.params.id}' could not be found` })
 
     return res.status(200).send({})
